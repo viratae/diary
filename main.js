@@ -6,6 +6,11 @@ class Diary {
     addEntry(entry) {
         this.entries.push(entry);
     }
+    removeEntryByID(id) {
+        this.entries = this.entries.filter(function(entry) {
+            return entry.id != id;
+        })
+    }
 }
 const myDiary = new Diary();
 
@@ -15,6 +20,7 @@ class Entry {
         this.dateInput = dateInput;
         this.titleInput = titleInput;
         this.descriptionInput = descriptionInput;
+        this.id = crypto.randomUUID();
     }
 }
 // IIFE to control form
@@ -57,7 +63,13 @@ const screen = (function screenController() {
             clone.querySelector(".date").textContent = entry.dateInput;
             clone.querySelector(".title").textContent = entry.titleInput;
             clone.querySelector(".description").textContent = entry.descriptionInput;
+            const deleteButton = clone.querySelector(".deleteButton")
+            deleteButton.addEventListener("click", () => {
+                myDiary.removeEntryByID(entry.id);
+                render(myDiary);
+            });
             recentEntriesCardSection.appendChild(clone);
+
         }
     }
     return { 
@@ -68,4 +80,6 @@ const screen = (function screenController() {
 // Adds initial entries and renders upon opening
 const starterEntry1 = new Entry("1-1-2026", "Lorem Ipsum", "A beautiful desciption of a beautiful (or not so beautiful) day");
 myDiary.addEntry(starterEntry1);
+const starterEntry2 = new Entry("1-2-2026", "New Year, New Me", "My New Year's resolutions are already off to a great start!");
+myDiary.addEntry(starterEntry2);
 screen.render(myDiary);
