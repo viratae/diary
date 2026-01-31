@@ -37,7 +37,7 @@ form {
     gap: 10px;
 }
 label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
 }
 input {
@@ -52,6 +52,11 @@ form > div {
     display: flex;
     gap: 5px;
     flex-direction: column;
+}
+#submitButton {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    height: 30px;
 }
 /* --- SEARCH BAR --- */
 #searchContainer {

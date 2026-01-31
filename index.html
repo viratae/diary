@@ -9,11 +9,11 @@
     <script src="https://kit.fontawesome.com/b8659964f9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="modal show">
+    <div id="modal" class="modal">
         <div class="modalContent">
             <span id="closeModal">&times;</span>
             <div id="formContainer">
-                <form id="bookForm">
+                <form id="entryForm">
                     <div>
                         <label for="dateInput">Date</label>
                         <input type="date" name="date" id="dateInput" required>
@@ -24,7 +24,7 @@
                     </div>
                     <div>
                         <label for="descriptionInput">Description</label>
-                        <input type="text" name="description" id="descriptionInput" required>
+                        <textarea id="descriptionInput" required></textarea>
                     </div>
                     <button id="submitButton" type="submit">Add Entry</button>
                 </form>
