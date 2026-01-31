@@ -40,8 +40,32 @@ const form = (function formController() {
         console.log(myDiary);
         modal.classList.remove('show');
         entryForm.reset();
+        screen.render(myDiary);
     });
     return { 
 
     }
 })();
+// IIFE to handle the screen
+const screen = (function screenController() {
+    const recentEntriesCardSection = document.querySelector('#recentEntriesCardSection');
+    const entryTemplate = document.querySelector('#entryTemplate');
+    function render(diary) {
+        recentEntriesCardSection.innerHTML = '';
+        for (const entry of diary.entries) {
+            const clone = entryTemplate.content.cloneNode(true);
+            clone.querySelector(".date").textContent = entry.dateInput;
+            clone.querySelector(".title").textContent = entry.titleInput;
+            clone.querySelector(".description").textContent = entry.descriptionInput;
+            recentEntriesCardSection.appendChild(clone);
+        }
+    }
+    return { 
+        render,
+    }
+})();
+
+// Adds initial entries and renders upon opening
+const starterEntry1 = new Entry("1-1-2026", "Lorem Ipsum", "A beautiful desciption of a beautiful (or not so beautiful) day");
+myDiary.addEntry(starterEntry1);
+screen.render(myDiary);
