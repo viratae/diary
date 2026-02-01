@@ -198,6 +198,19 @@ h2 {
 .rightCard .fa-trash {
     margin-right: 1vw;
 }
+.rightCard .fa-trash:hover {
+    animation-name: shake;
+    animation-duration: 0.4s;        /* How long the animation takes */
+    animation-iteration-count: 2; /* How many times it repeats (infinite or a number) */
+    animation-timing-function: ease-in-out;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(35deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-35deg); }
+    100% { transform: rorate(0def); }
+}
 #sideBar h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4rem;
@@ -217,18 +230,17 @@ h5 {
     gap: 10px;
 }
 #wrappedButton {
-    border: 3px solid rgb(120, 128, 217);
+    border: 3px solid rgb(130, 130, 130);
     border-radius: 10px;
     padding: 10px;
     background-color: white;
     font-size: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
-    color: rgb(120, 128, 217);
+    color: rgb(0, 0, 0);
 }
 #sideBar a {
     color: black;
     text-decoration: underline;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
